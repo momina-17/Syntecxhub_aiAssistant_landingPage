@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudyMind AI | Turn Your Notes Into Smarter Study Sessions</title>
+  <meta name="description" content="StudyMind AI turns your notes into summaries, quizzes, and flashcards. Built for high-school and college students in the USA.">
+  <meta name="theme-color" content="#05060a">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page page--home">
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- 1. NAVBAR -->
+  <header id="site-header" class="site-header">
+    <nav class="navbar" aria-label="Main navigation">
+      <a class="navbar__logo" href="#home" aria-label="StudyMind AI home">
+        <span class="navbar__logo-mark" aria-hidden="true"></span>
+        <span class="navbar__logo-text">StudyMind AI</span>
+      </a>
+
+      <button class="navbar__toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+        <span class="navbar__toggle-bar"></span>
+      </button>
+
+      <div class="navbar__menu" id="nav-menu">
+        <ul class="navbar__links">
+          <li><a class="navbar__link" href="#home">Home</a></li>
+          <li><a class="navbar__link" href="#how-it-works">How It Works</a></li>
+          <li><a class="navbar__link" href="#features">Features</a></li>
+          <li><a class="navbar__link" href="#pricing">Pricing</a></li>
+        </ul>
+        <div class="navbar__actions">
+          <a class="btn btn--ghost" href="#login" id="btn-login">Login</a>
+          <a class="btn btn--primary" href="#pricing" id="btn-nav-cta">Try StudyMind Free</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- 2. HERO -->
+    <section id="home" class="hero" aria-labelledby="hero-title">
+      <div class="hero__content">
+        <h1 class="hero__title" id="hero-title">Turn Your Notes Into Smarter Study Sessions.</h1>
+        <p class="hero__text">StudyMind AI transforms your class notes into clear summaries, practice quizzes, and flashcards, so you spend less time rereading and more time remembering.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary btn--lg" href="#pricing" id="btn-hero-cta">Try StudyMind Free</a>
+          <a class="btn btn--secondary btn--lg" href="#how-it-works" id="btn-hero-secondary">See How It Works</a>
+        </div>
+        <p class="hero__note">Free plan available. No credit card required.</p>
+      </div>
+
+      <div class="hero__visual" id="hero-3d-scene" data-scene="hero" role="img" aria-label="Three-dimensional scene of an open study notebook with floating flashcards, AI interface panels, and softly glowing particles">
+        <div class="hero-scene" id="hero-scene-stage">
+          <div class="hero-scene__notebook" id="hero-notebook"></div>
+          <div class="hero-scene__card hero-scene__card--summary" data-depth="1"></div>
+          <div class="hero-scene__card hero-scene__card--quiz" data-depth="2"></div>
+          <div class="hero-scene__card hero-scene__card--flashcard" data-depth="3"></div>
+          <div class="hero-scene__ui" id="hero-ai-panel" data-depth="2"></div>
+          <div class="hero-scene__particles" id="hero-particles" aria-hidden="true"></div>
+          <div class="hero-scene__glow" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. INTRODUCTION / TRUST -->
+    <section id="intro" class="intro" aria-labelledby="intro-title">
+      <div class="container">
+        <header class="section-header section-header--inline">
+          <h2 class="section-title" id="intro-title">Built for how students actually study</h2>
+          <p class="section-text">StudyMind AI is a study assistant for high-school and college students. Students use it to cut down prep time and turn messy notes into material they can practice with.</p>
+        </header>
+        <ul class="benefit-list">
+          <li class="benefit" data-animate="fade-up">
+            <span class="benefit__icon" aria-hidden="true"></span>
+            <h3 class="benefit__title">Save study time</h3>
+            <p class="benefit__text">Skip the rewriting and get straight to reviewing.</p>
+          </li>
+          <li class="benefit" data-animate="fade-up">
+            <span class="benefit__icon" aria-hidden="true"></span>
+            <h3 class="benefit__title">Understand difficult topics</h3>
+            <p class="benefit__text">See complex material broken into clear, simple points.</p>
+          </li>
+          <li class="benefit" data-animate="fade-up">
+            <span class="benefit__icon" aria-hidden="true"></span>
+            <h3 class="benefit__title">Practice with AI-generated questions</h3>
+            <p class="benefit__text">Test yourself before the exam does it for you.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. HOW IT WORKS -->
+    <section id="how-it-works" class="how" aria-labelledby="how-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="how-title">How it works</h2>
+          <p class="section-text">From raw notes to a full study set in three steps.</p>
+        </header>
+        <ol class="steps">
+          <li class="step" id="step-1" data-animate="fade-up">
+            <div class="step__visual" data-step-visual="add-notes" aria-hidden="true"></div>
+            <span class="step__number">01</span>
+            <h3 class="step__title">Add Your Notes</h3>
+            <p class="step__text">Paste or upload your study material.</p>
+          </li>
+          <li class="step" id="step-2" data-animate="fade-up">
+            <div class="step__visual" data-step-visual="ai-process" aria-hidden="true"></div>
+            <span class="step__number">02</span>
+            <h3 class="step__title">Let AI Process It</h3>
+            <p class="step__text">StudyMind analyzes your material and organizes the important information.</p>
+          </li>
+          <li class="step" id="step-3" data-animate="fade-up">
+            <div class="step__visual" data-step-visual="study" aria-hidden="true"></div>
+            <span class="step__number">03</span>
+            <h3 class="step__title">Study Smarter</h3>
+            <p class="step__text">Get summaries, quizzes and flashcards instantly.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 5. INTERACTIVE AI DEMO -->
+    <section id="demo" class="demo" aria-labelledby="demo-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="demo-title">Try the AI study assistant</h2>
+          <p class="section-text">Paste a few lines of notes, pick a format, and see what StudyMind creates. This is a simulated demo.</p>
+        </header>
+
+        <div class="demo__panel" id="demo-panel">
+          <form class="demo__form" id="demo-form" novalidate>
+            <div class="field demo__field-notes">
+              <label class="field__label" for="demo-notes">Your notes</label>
+              <textarea class="field__textarea" id="demo-notes" name="notes" rows="10" maxlength="2000" placeholder="Paste your notes here. For example: Photosynthesis is the process plants use to convert light energy into chemical energy..." aria-describedby="demo-counter demo-error"></textarea>
+              <div class="demo__meta" id="demo-counter" aria-live="polite">
+                <span class="demo__count"><span id="demo-word-count">0</span> words</span>
+                <span class="demo__count"><span id="demo-char-count">0</span> / 2000 characters</span>
+              </div>
+              <p class="field__error" id="demo-error" role="alert" hidden></p>
+            </div>
+
+            <div class="field demo__field-mode">
+              <label class="field__label" for="demo-mode">Output type</label>
+              <select class="field__select" id="demo-mode" name="mode">
+                <option value="summary">Summary</option>
+                <option value="quiz">Quiz</option>
+                <option value="flashcards">Flashcards</option>
+              </select>
+            </div>
+
+            <div class="demo__buttons">
+              <button class="btn btn--primary" type="submit" id="demo-generate">Generate</button>
+              <button class="btn btn--ghost" type="button" id="demo-sample">Use sample notes</button>
+              <button class="btn btn--ghost" type="reset" id="demo-clear">Clear</button>
+            </div>
+          </form>
+
+          <div class="demo__result" id="demo-result-wrap">
+            <h3 class="demo__result-title" id="demo-result-title">AI output</h3>
+            <div class="demo__loading" id="demo-loading" role="status" aria-live="polite" hidden>
+              <span class="demo__loader" aria-hidden="true"></span>
+              <span class="demo__loading-text" id="demo-loading-text">Analyzing your notes...</span>
+            </div>
+            <div class="demo__empty" id="demo-empty">
+              <p>Your summary, quiz, or flashcards will appear here.</p>
+            </div>
+            <div class="demo__output" id="demo-output" aria-live="polite" tabindex="-1" hidden></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FEATURES -->
+    <section id="features" class="features" aria-labelledby="features-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="features-title">Everything you need to study with focus</h2>
+        </header>
+        <div class="feature-grid">
+          <article class="feature-card" id="feature-summaries" data-animate="fade-up">
+            <div class="feature-card__visual anim-summary" aria-hidden="true"></div>
+            <h3 class="feature-card__title">AI Summaries</h3>
+            <p class="feature-card__text">Turn long notes into clear and concise study summaries.</p>
+          </article>
+          <article class="feature-card" id="feature-quiz" data-animate="fade-up">
+            <div class="feature-card__visual anim-quiz" aria-hidden="true"></div>
+            <h3 class="feature-card__title">Quiz Generator</h3>
+            <p class="feature-card__text">Generate practice questions from your study material.</p>
+          </article>
+          <article class="feature-card" id="feature-flashcards" data-animate="fade-up">
+            <div class="feature-card__visual anim-flashcards" aria-hidden="true"></div>
+            <h3 class="feature-card__title">Smart Flashcards</h3>
+            <p class="feature-card__text">Create quick-review flashcards from your notes.</p>
+          </article>
+          <article class="feature-card" id="feature-planner" data-animate="fade-up">
+            <div class="feature-card__visual anim-planner" aria-hidden="true"></div>
+            <h3 class="feature-card__title">Study Planner</h3>
+            <p class="feature-card__text">Organize your study sessions and track your progress.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. QUIZ PREVIEW -->
+    <section id="quiz-preview" class="quiz" aria-labelledby="quiz-title">
+      <div class="container quiz__layout">
+        <header class="section-header section-header--side">
+          <h2 class="section-title" id="quiz-title">Practice that gives instant feedback</h2>
+          <p class="section-text">Answer a question, see why it is right or wrong, and move on. Here is a sample from a biology set.</p>
+        </header>
+
+        <article class="quiz-card" id="quiz-card" aria-labelledby="quiz-question">
+          <header class="quiz-card__header">
+            <p class="quiz-card__number" id="quiz-number">Question <span id="quiz-current">1</span> of <span id="quiz-total">5</span></p>
+            <div class="quiz-card__progress">
+              <progress class="quiz-card__progress-bar" id="quiz-progress" value="1" max="5" aria-label="Quiz progress">1 of 5</progress>
+            </div>
+          </header>
+
+          <form class="quiz-card__body" id="quiz-form" novalidate>
+            <fieldset class="quiz-card__fieldset">
+              <legend class="quiz-card__question" id="quiz-question">What is the primary function of chlorophyll?</legend>
+              <div class="quiz-card__options" id="quiz-options" role="group" aria-labelledby="quiz-question">
+                <button class="quiz-option" type="button" data-option="A" data-correct="true" id="quiz-option-a">
+                  <span class="quiz-option__letter">A</span>
+                  <span class="quiz-option__text">Absorb light</span>
+                </button>
+                <button class="quiz-option" type="button" data-option="B" data-correct="false" id="quiz-option-b">
+                  <span class="quiz-option__letter">B</span>
+                  <span class="quiz-option__text">Produce oxygen</span>
+                </button>
+                <button class="quiz-option" type="button" data-option="C" data-correct="false" id="quiz-option-c">
+                  <span class="quiz-option__letter">C</span>
+                  <span class="quiz-option__text">Absorb water</span>
+                </button>
+                <button class="quiz-option" type="button" data-option="D" data-correct="false" id="quiz-option-d">
+                  <span class="quiz-option__letter">D</span>
+                  <span class="quiz-option__text">Store glucose</span>
+                </button>
+              </div>
+            </fieldset>
+
+            <div class="quiz-card__feedback" id="quiz-feedback" role="status" aria-live="polite" hidden></div>
+
+            <footer class="quiz-card__footer">
+              <p class="quiz-card__score">Score: <span id="quiz-score">0</span></p>
+              <button class="btn btn--primary" type="button" id="quiz-next" disabled>Next Question</button>
+            </footer>
+          </form>
+        </article>
+      </div>
+    </section>
+
+    <!-- 8. DASHBOARD PREVIEW -->
+    <section id="dashboard" class="dashboard" aria-labelledby="dashboard-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="dashboard-title">See your progress at a glance</h2>
+          <p class="section-text">A preview of the StudyMind dashboard with sample data.</p>
+        </header>
+
+        <div class="dash" id="dash-preview" role="group" aria-label="Sample student dashboard">
+          <header class="dash__topbar">
+            <p class="dash__greeting">Good evening, Maya</p>
+            <p class="dash__date">Week of Oct 5</p>
+          </header>
+
+          <section class="dash-panel dash-panel--progress" id="dash-progress" aria-labelledby="dash-progress-title">
+            <h3 class="dash-panel__title" id="dash-progress-title">Study Progress</h3>
+            <div class="dash-ring" data-value="72" role="img" aria-label="72 percent of weekly goal completed">
+              <span class="dash-ring__value">72%</span>
+            </div>
+            <p class="dash-panel__caption">9 of 12.5 hours this week</p>
+          </section>
+
+          <section class="dash-panel dash-panel--subjects" id="dash-subjects" aria-labelledby="dash-subjects-title">
+            <h3 class="dash-panel__title" id="dash-subjects-title">Subjects</h3>
+            <ul class="dash-subjects">
+              <li class="dash-subject">
+                <span class="dash-subject__name">AP Biology</span>
+                <progress class="dash-subject__bar" value="84" max="100" aria-label="AP Biology mastery">84%</progress>
+                <span class="dash-subject__value">84%</span>
+              </li>
+              <li class="dash-subject">
+                <span class="dash-subject__name">US History</span>
+                <progress class="dash-subject__bar" value="67" max="100" aria-label="US History mastery">67%</progress>
+                <span class="dash-subject__value">67%</span>
+              </li>
+              <li class="dash-subject">
+                <span class="dash-subject__name">Calculus I</span>
+                <progress class="dash-subject__bar" value="58" max="100" aria-label="Calculus I mastery">58%</progress>
+                <span class="dash-subject__value">58%</span>
+              </li>
+              <li class="dash-subject">
+                <span class="dash-subject__name">Psychology 101</span>
+                <progress class="dash-subject__bar" value="91" max="100" aria-label="Psychology 101 mastery">91%</progress>
+                <span class="dash-subject__value">91%</span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="dash-panel dash-panel--scores" id="dash-scores" aria-labelledby="dash-scores-title">
+            <h3 class="dash-panel__title" id="dash-scores-title">Quiz Scores</h3>
+            <p class="dash-panel__big">86% <span class="dash-panel__delta">+7% from last week</span></p>
+            <ol class="dash-chart" aria-label="Quiz scores over the last six quizzes">
+              <li class="dash-chart__bar" data-score="72"><span class="visually-hidden">72 percent</span></li>
+              <li class="dash-chart__bar" data-score="78"><span class="visually-hidden">78 percent</span></li>
+              <li class="dash-chart__bar" data-score="75"><span class="visually-hidden">75 percent</span></li>
+              <li class="dash-chart__bar" data-score="84"><span class="visually-hidden">84 percent</span></li>
+              <li class="dash-chart__bar" data-score="88"><span class="visually-hidden">88 percent</span></li>
+              <li class="dash-chart__bar" data-score="92"><span class="visually-hidden">92 percent</span></li>
+            </ol>
+          </section>
+
+          <section class="dash-panel dash-panel--streak" id="dash-streak" aria-labelledby="dash-streak-title">
+            <h3 class="dash-panel__title" id="dash-streak-title">Study Streak</h3>
+            <p class="dash-panel__big">14 days</p>
+            <ul class="dash-streak" aria-label="Last seven days of study activity">
+              <li class="dash-streak__day is-done"><span class="visually-hidden">Mon, studied</span>M</li>
+              <li class="dash-streak__day is-done"><span class="visually-hidden">Tue, studied</span>T</li>
+              <li class="dash-streak__day is-done"><span class="visually-hidden">Wed, studied</span>W</li>
+              <li class="dash-streak__day is-done"><span class="visually-hidden">Thu, studied</span>T</li>
+              <li class="dash-streak__day is-done"><span class="visually-hidden">Fri, studied</span>F</li>
+              <li class="dash-streak__day is-today"><span class="visually-hidden">Sat, today</span>S</li>
+              <li class="dash-streak__day"><span class="visually-hidden">Sun, upcoming</span>S</li>
+            </ul>
+          </section>
+
+          <section class="dash-panel dash-panel--activity" id="dash-activity" aria-labelledby="dash-activity-title">
+            <h3 class="dash-panel__title" id="dash-activity-title">Recent Activity</h3>
+            <ul class="dash-activity">
+              <li class="dash-activity__item">
+                <p class="dash-activity__text">Completed quiz: Cell Respiration (9/10)</p>
+                <time class="dash-activity__time" datetime="PT2H">2 hours ago</time>
+              </li>
+              <li class="dash-activity__item">
+                <p class="dash-activity__text">Generated 24 flashcards: The Cold War</p>
+                <time class="dash-activity__time" datetime="P1D">Yesterday</time>
+              </li>
+              <li class="dash-activity__item">
+                <p class="dash-activity__text">Summarized notes: Derivatives and Limits</p>
+                <time class="dash-activity__time" datetime="P1D">Yesterday</time>
+              </li>
+              <li class="dash-activity__item">
+                <p class="dash-activity__text">Planned session: Psychology review, 45 min</p>
+                <time class="dash-activity__time" datetime="P2D">2 days ago</time>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. PRICING -->
+    <section id="pricing" class="pricing" aria-labelledby="pricing-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="pricing-title">Simple plans for every student</h2>
+          <p class="section-text">Start free. Upgrade when you need more.</p>
+        </header>
+
+        <div class="pricing-grid">
+          <article class="plan" id="plan-free" aria-labelledby="plan-free-name">
+            <header class="plan__header">
+              <h3 class="plan__name" id="plan-free-name">Free</h3>
+              <p class="plan__price"><span class="plan__amount">$0</span> <span class="plan__period">/ month</span></p>
+            </header>
+            <ul class="plan__features">
+              <li class="plan__feature">Basic study tools</li>
+              <li class="plan__feature">Limited AI generations</li>
+              <li class="plan__feature">Basic quizzes</li>
+            </ul>
+            <a class="btn btn--secondary plan__cta" href="#signup-free" id="plan-free-cta">Start Free</a>
+          </article>
+
+          <article class="plan plan--recommended" id="plan-student" aria-labelledby="plan-student-name" data-recommended="true">
+            <p class="plan__badge">Recommended</p>
+            <header class="plan__header">
+              <h3 class="plan__name" id="plan-student-name">Student</h3>
+              <p class="plan__price"><span class="plan__amount">$9</span> <span class="plan__period">/ month</span></p>
+            </header>
+            <ul class="plan__features">
+              <li class="plan__feature">More AI generations</li>
+              <li class="plan__feature">Unlimited summaries</li>
+              <li class="plan__feature">Advanced quizzes</li>
+              <li class="plan__feature">Flashcards</li>
+              <li class="plan__feature">Study planner</li>
+            </ul>
+            <a class="btn btn--primary plan__cta" href="#signup-student" id="plan-student-cta">Choose Student</a>
+          </article>
+
+          <article class="plan" id="plan-pro" aria-labelledby="plan-pro-name">
+            <header class="plan__header">
+              <h3 class="plan__name" id="plan-pro-name">Pro</h3>
+              <p class="plan__price"><span class="plan__amount">$19</span> <span class="plan__period">/ month</span></p>
+            </header>
+            <ul class="plan__features">
+              <li class="plan__feature">Advanced AI tools</li>
+              <li class="plan__feature">Higher usage limits</li>
+              <li class="plan__feature">Advanced analytics</li>
+              <li class="plan__feature">Priority features</li>
+            </ul>
+            <a class="btn btn--secondary plan__cta" href="#signup-pro" id="plan-pro-cta">Choose Pro</a>
+          </article>
+        </div>
+        <p class="pricing__note">Prices shown are sample pricing for this demo page.</p>
+      </div>
+    </section>
+
+    <!-- 10. TESTIMONIALS -->
+    <section id="testimonials" class="testimonials" aria-labelledby="testimonials-title">
+      <div class="container">
+        <header class="section-header">
+          <h2 class="section-title" id="testimonials-title">What students could say</h2>
+          <p class="section-text">These are fictional demo testimonials written for design purposes. They are not from real customers.</p>
+        </header>
+        <div class="testimonial-grid">
+          <figure class="testimonial" data-animate="fade-up">
+            <blockquote class="testimonial__quote">
+              <p>I pasted my bio chapter and had a quiz ready in under a minute. Reviewing felt a lot less overwhelming.</p>
+            </blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__avatar" aria-hidden="true"></span>
+              <span class="testimonial__name">Demo Student A</span>
+              <span class="testimonial__role">High-school junior (fictional)</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial" data-animate="fade-up">
+            <blockquote class="testimonial__quote">
+              <p>The flashcards made it easy to review between classes. I could finally keep up with my history reading.</p>
+            </blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__avatar" aria-hidden="true"></span>
+              <span class="testimonial__name">Demo Student B</span>
+              <span class="testimonial__role">College sophomore (fictional)</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial" data-animate="fade-up">
+            <blockquote class="testimonial__quote">
+              <p>Seeing my quiz scores and streak in one place kept me consistent during midterms.</p>
+            </blockquote>
+            <figcaption class="testimonial__author">
+              <span class="testimonial__avatar" aria-hidden="true"></span>
+              <span class="testimonial__name">Demo Student C</span>
+              <span class="testimonial__role">College freshman (fictional)</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. FINAL CTA -->
+    <section id="final-cta" class="final-cta" aria-labelledby="final-cta-title">
+      <div class="container final-cta__inner">
+        <h2 class="final-cta__title" id="final-cta-title">Study Less Randomly. Study More Smartly.</h2>
+        <p class="final-cta__text">Bring your next set of notes and let StudyMind AI turn them into a plan you can follow. Your first study set is on us.</p>
+        <a class="btn btn--primary btn--lg" href="#signup-free" id="btn-final-cta">Start Studying Smarter</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 12. FOOTER -->
+  <footer id="site-footer" class="site-footer">
+    <div class="container footer__grid">
+      <section class="footer__brand" aria-labelledby="footer-brand-name">
+        <h2 class="footer__logo" id="footer-brand-name">StudyMind AI</h2>
+        <p class="footer__description">An AI study assistant that turns notes into summaries, quizzes, and flashcards for high-school and college students.</p>
+      </section>
+
+      <nav class="footer__nav" aria-labelledby="footer-product-title">
+        <h3 class="footer__title" id="footer-product-title">Product</h3>
+        <ul class="footer__list">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#demo">Try the Demo</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav" aria-labelledby="footer-company-title">
+        <h3 class="footer__title" id="footer-company-title">Company</h3>
+        <ul class="footer__list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#press">Press</a></li>
+        </ul>
+      </nav>
+
+      <nav class="footer__nav" aria-labelledby="footer-support-title">
+        <h3 class="footer__title" id="footer-support-title">Support</h3>
+        <ul class="footer__list">
+          <li><a href="#help">Help Center</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><a href="#terms">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="container footer__bottom">
+      <p class="footer__copyright">&copy; <span id="footer-year">2026</span> StudyMind AI. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
